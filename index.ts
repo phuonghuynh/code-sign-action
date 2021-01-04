@@ -77,9 +77,8 @@ function setOutputSignCmd() {
         .concat(`/fd sha256 `);
 
     if (sign_args) {
-        core.debug(`override default sign args`);
-        sign_args = `sign /f ${certificatePfxFilepath} ${sign_args} `;
-        cmd = `"${signtool}" sign /f ${certificatePfxFilepath} ${sign_args} `;
+        cmd = `"${signtool}" sign /f ${certificatePfxFilepath} ${sign_args}`;
+        console.log(`override default sign args: ${cmd}`);
     }
 
     core.setOutput("signtool_cmd", cmd);
